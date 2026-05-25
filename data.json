@@ -80,45 +80,46 @@
       "label": "The Market",
       "subtitle": "Where we land first",
       "color": "#3D0E40",
-      "headline": "Three Verticals. Fifty Billion Plus Addressable.",
-      "body": "The platform is general, but the first three landing verticals are concrete and KOL-anchored.\n\nDiabetic Nephropathy — an eighteen billion dollar global market by 2030. BiRAGAS deploys a subscription clinic model plus a companion diagnostic, with in-house cohort data already validated.\n\nAcute Myeloid Leukemia — four-point-two billion dollar market. AML mortality has remained unchanged for fifteen years. BiRAGAS has identified novel FLT3-resistance biomarkers and the WDR4 driver, with peer-reviewed work in publication queue.\n\nThrombosis & Anticoagulation — thirty billion dollar market. The ATLAS consortium of ten KOL physician-scientists is already engaged — both the adult CPC ATLAS and Pedi-ATLAS programs.\n\nEach vertical is a wedge into the broader platform. Pharma partners license modules. Clinicians order biomarker assays. Payers reimburse via established codes.",
+      "headline": "Two Verticals. Twenty-Two Billion Plus Addressable.",
+      "body": "The platform is general — but the first two landing verticals are concrete, data-anchored, and already underway.\n\nDiabetic Nephropathy — an eighteen billion dollar global market by 2030. BiRAGAS deploys a subscription clinic model plus a companion diagnostic, with in-house cohort data already validated and the regulatory pathway already engaged.\n\nAcute Myeloid Leukemia — a four-point-two billion dollar market. AML mortality has remained unchanged for fifteen years. BiRAGAS has identified novel FLT3-resistance biomarkers and the WDR4 driver, with peer-reviewed work in publication queue.\n\nEach vertical is a wedge into the broader platform. Pharma partners license modules. Clinicians order biomarker assays. Payers reimburse via established codes. The same architecture extends to oncology, metabolic disease, autoimmune, and neurodegeneration after the first two prove the model.",
       "tactics": [
-        "Lead with whichever vertical the investor knows — DN for kidney funds, AML for cancer funds, Thrombosis for cardiovascular.",
-        "Use ATLAS as a distribution moat — ten engaged KOLs is real.",
+        "Lead with whichever vertical the investor knows — DN for kidney funds, AML for cancer funds.",
         "Frame each vertical as 'a wedge into the broader platform' — not a single-shot bet.",
-        "Mention companion diagnostics — they hit reimbursement codes and accelerate revenue."
+        "Mention companion diagnostics — they hit established reimbursement codes and accelerate revenue.",
+        "Anchor the size: $22B+ addressable just in the first two verticals."
       ],
-      "narration": "Section six. The Market. Three near-term verticals. Fifty billion plus addressable. Diabetic Nephropathy — eighteen billion by twenty thirty, subscription clinic plus companion diagnostic. AML — four-point-two billion, mortality unchanged in fifteen years, novel FLT3-resistance biomarkers identified. Thrombosis and Anticoagulation — thirty billion, with the ATLAS consortium of ten KOL physician-scientists already engaged. Lead with whichever vertical the investor knows. Use ATLAS as a distribution moat."
+      "narration": "Section six. The Market. Two near-term verticals. Twenty-two billion plus addressable. Diabetic Nephropathy — eighteen billion by twenty thirty, subscription clinic plus companion diagnostic. AML — four-point-two billion, mortality unchanged in fifteen years, novel FLT3-resistance biomarkers identified. Each vertical is a wedge into the broader platform. Lead with whichever vertical the investor knows. Frame each one as a wedge — not a single-shot bet."
     },
     {
       "id": "moat",
       "label": "The Moat",
-      "subtitle": "Why competitors can't catch up",
+      "subtitle": "Why BiRAGAS is unreplicable",
       "color": "#0E7C7B",
-      "headline": "They Bet on Correlation. We Bet on Causation.",
-      "body": "The AI-drug-discovery market is crowded — Recursion, Insitro, Owkin, Schrödinger, BenevolentAI. But every major incumbent is correlational at architecture level. They optimize molecules after a target is chosen. They identify associations between genes and phenotypes. None of them ships a unified causal DAG with Mendelian randomization, CRISPR perturbation, SIGNOR pathway evidence, and causal calculus all converging on one platform.\n\nThat gap is not a feature gap. It is a foundation gap. To match BiRAGAS, a competitor would have to rebuild from the substrate up — and replicate four years of architectural decisions that the team has already made.\n\nAdd the regulatory tailwind: FDA guidance now explicitly favors mechanistic causal evidence. The platforms architected for correlation are exposed. BiRAGAS was architected for what the FDA is moving toward.",
+      "headline": "Unreplicable by Architecture.",
+      "body": "BiRAGAS is unreplicable — not because of any single module, but because of how the modules are wired together at the foundation.\n\nThe AI-drug-discovery market is crowded — Recursion, Insitro, Owkin, Schrödinger, BenevolentAI. But every major incumbent is correlational at the architecture level. They optimize molecules after a target is chosen. They identify associations between genes and phenotypes. None of them ships a unified causal DAG with Mendelian randomization, CRISPR perturbation, SIGNOR pathway evidence, and causal calculus all converging on one platform.\n\nThat gap is not a feature gap. It is a foundation gap. To match BiRAGAS, a competitor would have to rebuild from the substrate up — replicate four years of architectural decisions, re-derive the integration logic across four convergent evidence streams, and re-build the Causion natural-language layer on top. Even with unlimited engineering budget, the platform cannot be copied in less than three to four years.\n\nLayer in the regulatory tailwind: FDA guidance now explicitly favors mechanistic causal evidence. The platforms architected for correlation are structurally exposed. BiRAGAS was architected for exactly what the FDA is moving toward — by design, not by accident.",
       "tactics": [
+        "Open with the word 'unreplicable' — own it.",
         "Name specific competitors out loud — investors test whether you know the landscape.",
         "Use 'foundation gap, not feature gap' to make the moat sound structural.",
-        "Tie the moat to the regulatory tailwind — it's a free force multiplier.",
-        "Mention publications by name: Mendelian randomization in The Lancet; Pearl's causal calculus in Causal Inference in Statistics."
+        "Quantify the catch-up cost: 3–4 years of rearchitecture, even with unlimited engineering budget.",
+        "Tie the moat to the regulatory tailwind — it's a free force multiplier."
       ],
-      "narration": "Section seven. The Moat. The AI-drug-discovery market is crowded — Recursion, Insitro, Owkin, Schrödinger, BenevolentAI. But every major incumbent is correlational at the architecture level. None of them ships a unified causal DAG with Mendelian randomization, CRISPR perturbation, SIGNOR pathway evidence, and causal calculus all converging on one platform. Use the phrase 'foundation gap, not feature gap.' Add the regulatory tailwind — FDA guidance now explicitly favors mechanistic causal evidence."
+      "narration": "Section seven. The Moat. BiRAGAS is unreplicable — not because of any single module, but because of how the modules are wired together at the foundation. The AI-drug-discovery market is crowded — Recursion, Insitro, Owkin, Schrödinger, BenevolentAI. But every major incumbent is correlational at the architecture level. None of them ships a unified causal DAG with Mendelian randomization, CRISPR perturbation, SIGNOR pathway evidence, and causal calculus all converging on one platform. To match BiRAGAS, a competitor would need three to four years of rearchitecture from the substrate up — even with unlimited engineering budget. That is the moat. Open with the word 'unreplicable.' Use 'foundation gap, not feature gap.' Layer in the FDA tailwind."
     },
     {
       "id": "model",
       "label": "The Model",
       "subtitle": "How we make money",
       "color": "#D4A017",
-      "headline": "Modular Licensing. CLIA. Companion Diagnostics.",
-      "body": "Three revenue motions, in declining order of contract size and increasing order of velocity.\n\nModular Licensing — enterprise license of BiRAGAS modules to pharma sponsors and CROs. Once a module is integrated into a sponsor's regulatory workflow, switching costs are high. Land-and-expand from a single module to the full platform is the playbook. Six- to seven-figure annual contracts.\n\nCLIA-Validated Discovery — BiRAGAS operates an in-house CLIA laboratory for biomarker assays. This converts the platform's outputs into billable clinical tests with established reimbursement codes. Mid-five to mid-six figures per assay run.\n\nCompanion Diagnostics — co-developed with pharma partners on a per-program basis, with milestone payments and royalties. Long-cycle but high-upside.\n\nPlus a fourth track — Aptamer platform commercialization — different buyers, shorter sales cycles, established peer-reviewed publications.",
+      "headline": "Modular Licensing. Companion Diagnostics. Co-Development.",
+      "body": "Three revenue motions, in declining order of contract size and increasing order of velocity.\n\nModular Licensing — enterprise license of BiRAGAS modules to pharma sponsors and contract research organizations. Once a module is integrated into a sponsor's regulatory workflow, switching costs are high. Land-and-expand from a single module to the full platform is the playbook. Six- to seven-figure annual contracts.\n\nCompanion Diagnostics — co-developed with pharma partners on a per-program basis, with milestone payments plus tiered royalties on launched therapies. Long-cycle but high-upside, and tied directly to a sponsor's drug success — when their drug wins, we win.\n\nCo-Development & Discovery Partnerships — strategic arrangements with pharma partners where BiRAGAS operates upstream target-discovery for a defined indication, in exchange for upfront fees, milestones, and an equity-style stake in the resulting therapeutic asset. This is the highest-upside motion — and the one that ties pharma directly to BiRAGAS's causal infrastructure.",
       "tactics": [
         "Frame licensing as 'land and expand' — investors know the SaaS playbook.",
         "Emphasize high switching costs once the platform enters a regulatory workflow.",
-        "Mention CLIA explicitly — it signals real reimbursement, not promised reimbursement.",
-        "Use 'aptamer platform' as a second commercial track to hedge concentration risk."
+        "Highlight companion diagnostics as the bridge from causal discovery to billable clinical product.",
+        "Position co-development as the long-term, asymmetric-upside motion — equity in the program, not just a service fee."
       ],
-      "narration": "Section eight. The Model. Three revenue motions. Modular licensing — enterprise contracts with pharma sponsors and CROs, six to seven figures annually, high switching costs once integrated. CLIA-validated discovery — in-house lab for biomarker assays at established reimbursement codes. Companion diagnostics — co-developed with pharma partners, milestone payments plus royalties. Plus the aptamer platform as a second commercial track. Frame licensing as 'land and expand.' Emphasize high switching costs."
+      "narration": "Section eight. The Model. Three revenue motions. Modular licensing — enterprise contracts with pharma sponsors and contract research organizations, six to seven figures annually, high switching costs once integrated. Companion diagnostics — co-developed with pharma partners, milestone payments plus tiered royalties on launched therapies. Co-development partnerships — strategic arrangements where BiRAGAS operates upstream target discovery in exchange for upfront fees, milestones, and an equity-style stake in the resulting therapeutic asset. Frame licensing as land-and-expand. Emphasize high switching costs. Position co-development as the long-term asymmetric-upside motion."
     },
     {
       "id": "ask",
@@ -141,14 +142,14 @@
       "subtitle": "Why now, why us",
       "color": "#C8102E",
       "headline": "The Bet.",
-      "body": "The thesis runs on three converging shifts that did not exist five years ago.\n\nOne. The compute and algorithmic substrate for causal inference at biological scale finally exists. Pearl's causal calculus has matured from a 1990s theoretical framework into a practical engine that runs on commodity GPU.\n\nTwo. The data substrate exists. Large-scale GWAS, DepMap, CRISPR perturbation screens, and SIGNOR-style curated causal databases are now publicly accessible. The same architecture would have been impossible a decade ago because the data didn't exist.\n\nThree. The regulatory substrate is shifting. The FDA is explicitly asking for mechanistic, causal evidence. Platforms architected for correlation are now structurally exposed.\n\nThe execution side is concrete. Twenty-three of twenty-eight modules are already in production-test. The ATLAS consortium of ten KOL physician-scientists is engaged. Patents are in filing. The team — MD-PhD CEO, deep advisory bench across causal AI, regulatory, and IP — has been building this for four years.\n\nThe bet is on this team executing three concrete milestone-driven tiers in twelve months. That is what the twenty percent discount compensates for.\n\nWe are not building another AI that finds associations. We are building the infrastructure that finally tells biology's actual story.",
+      "body": "The thesis runs on three converging shifts that did not exist five years ago.\n\nOne. The compute and algorithmic substrate for causal inference at biological scale finally exists. Pearl's causal calculus has matured from a 1990s theoretical framework into a practical engine that runs on commodity GPU.\n\nTwo. The data substrate exists. Large-scale GWAS, DepMap, CRISPR perturbation screens, and SIGNOR-style curated causal databases are now publicly accessible. The same architecture would have been impossible a decade ago because the data didn't exist.\n\nThree. The regulatory substrate is shifting. The FDA is explicitly asking for mechanistic, causal evidence. Platforms architected for correlation are now structurally exposed.\n\nThe execution side is concrete. Twenty-three of twenty-eight modules are already in production-test. A deep KOL physician-scientist advisory bench is engaged. Patents are in filing. The team — MD-PhD CEO, deep advisory bench across causal AI, regulatory, and IP — has been building this for four years.\n\nThe bet is on this team executing three concrete milestone-driven tiers in twelve months. That is what the twenty percent discount compensates for.\n\nWe are not building another AI that finds associations. We are building the infrastructure that finally tells biology's actual story.",
       "tactics": [
         "Use the 'three converging shifts' frame — investors love thesis structure.",
         "Pivot from why-now into team — the bet on this team executing.",
         "End on the closing line — 'the infrastructure that finally tells biology's actual story.'",
         "Leave silence after the closing line. Don't qualify it."
       ],
-      "narration": "Section ten. The Bet. The thesis runs on three converging shifts. One — the compute and algorithmic substrate for causal inference at biological scale finally exists. Two — large public causal datasets are now available. Three — the FDA is explicitly asking for mechanistic causal evidence. The execution is concrete. Twenty-three of twenty-eight modules in production-test, ATLAS engaged, patents in filing. Close with the line — we are not building another AI that finds associations. We are building the infrastructure that finally tells biology's actual story. Leave silence after."
+      "narration": "Section ten. The Bet. The thesis runs on three converging shifts. One — the compute and algorithmic substrate for causal inference at biological scale finally exists. Two — large public causal datasets are now available. Three — the FDA is explicitly asking for mechanistic causal evidence. The execution is concrete. Twenty-three of twenty-eight modules in production-test, a deep KOL physician-scientist advisory bench engaged, patents in filing. Close with the line — we are not building another AI that finds associations. We are building the infrastructure that finally tells biology's actual story. Leave silence after."
     }
   ],
   "objections": [
@@ -166,7 +167,7 @@
     },
     {
       "q": "What's the path to revenue?",
-      "a": "Three motions. Modular licensing to pharma and biotech — land-and-expand model with six- to seven-figure annual contracts and high switching costs. CLIA-validated biomarker assays — established reimbursement codes, mid-five to mid-six figures per run. Companion diagnostics co-developed with pharma partners — milestone payments and royalties. Plus the aptamer platform as a second commercial track. The first revenue ships from CLIA assays — that is the fastest path."
+      "a": "Three motions. Modular licensing to pharma and biotech — land-and-expand model with six- to seven-figure annual contracts and high switching costs once the platform enters a sponsor's regulatory workflow. Companion diagnostics co-developed with pharma partners — milestone payments plus tiered royalties on launched therapies, tying our upside directly to the sponsor's drug success. Co-development and discovery partnerships — strategic arrangements where BiRAGAS operates upstream target-discovery in exchange for upfront fees, milestones, and an equity-style stake in the resulting therapeutic asset. The first revenue ships from licensing — fastest sales cycle and highest gross margin."
     },
     {
       "q": "Why now? Why hasn't this been done before?",
@@ -178,7 +179,7 @@
     },
     {
       "q": "Why is this team the right team?",
-      "a": "Dr. Mohamad Ammar Ayass is a practicing MD with a computational pathology background — clinician and causal-AI architect in one. Supporting him is the ATLAS consortium of ten KOL physician-scientists across the CPC ATLAS and Pedi-ATLAS programs, plus a technical and advisory bench across causal AI, transcriptomics, regulatory, and IP. This is not a first-time team. They have been building this platform for four years and shipped 23 of 28 modules to production-test status before raising capital."
+      "a": "Dr. Mohamad Ammar Ayass is a practicing MD with a computational pathology background — clinician and causal-AI architect in one. Supporting him is a deep KOL physician-scientist advisory bench plus technical advisors across causal AI, transcriptomics, regulatory, and IP. This is not a first-time team. They have been building this platform for four years and shipped 23 of 28 modules to production-test status before raising capital."
     },
     {
       "q": "What exactly is the Refund Right?",
