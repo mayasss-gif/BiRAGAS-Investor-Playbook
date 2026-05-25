@@ -38,17 +38,23 @@
   ::-webkit-scrollbar-track { background: #0A0A0A; }
   ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
   ::-webkit-scrollbar-thumb:hover { background: #555; }
+  .menu-btn { display: none; }
+  .drawer-backdrop { display: none; }
+  .drawer { display: none; }
   @media (max-width: 720px) {
     .sidebar { display: none !important; }
     .main-pad { padding: 24px 20px !important; }
     .header-pad { padding: 18px 20px 14px !important; }
     .header-row { flex-direction: column; align-items: flex-start !important; }
     .controls { width: 100%; justify-content: flex-start !important; flex-wrap: wrap; }
-    .mobile-nav { display: flex !important; }
-    .mobile-section-pick { display: block !important; }
+    .menu-btn { display: inline-flex !important; }
+    h1.title { font-size: 22px !important; }
+    .footer-row { padding: 10px 20px !important; font-size: 10px !important; }
+    .drawer { display: flex !important; }
+    .drawer-backdrop { display: block !important; }
   }
-  .mobile-nav { display: none; }
-  .mobile-section-pick { display: none; }
+  @keyframes drawerIn { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 </style>
 </head>
 <body>
@@ -270,7 +276,13 @@ function BiRAGASPlaybook() {
   const [activeObj, setActiveObj] = useState(null);
   const [tab, setTab] = useState("narrative");
   const [audioEnabled, setAudioEnabled] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const audioRef = useRef(null);
+
+  useEffect(() => {
+    document.body.style.overflow = drawerOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [drawerOpen]);
 
   useEffect(() => {
     const a = audioRef.current;
@@ -308,16 +320,37 @@ function BiRAGASPlaybook() {
         padding: "28px 40px 20px",
       }}>
         <div className="header-row" style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
-          <div>
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <button
+              className="menu-btn"
+              onClick={() => setDrawerOpen(true)}
+              aria-label="Open sections menu"
+              style={{
+                background: "transparent",
+                border: "1px solid #444",
+                color: "#F5F0E8",
+                width: 40,
+                height: 40,
+                borderRadius: 4,
+                cursor: "pointer",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0
+              }}
+            >
+              <span style={{ display: "inline-block", lineHeight: 1, fontSize: 18 }}>☰</span>
+            </button>
+            <div>
             <div style={{ fontSize: 11, letterSpacing: "0.25em", color: "#888", textTransform: "uppercase", marginBottom: 6, fontFamily: "monospace" }}>
               AYASS BIOSCIENCE · BIRAGAS PLATFORM
             </div>
-            <h1 style={{ margin: 0, fontSize: 28, fontWeight: 700, color: "#F5F0E8", letterSpacing: "-0.5px" }}>
+            <h1 className="title" style={{ margin: 0, fontSize: 28, fontWeight: 700, color: "#F5F0E8", letterSpacing: "-0.5px" }}>
               Investor Playbook
             </h1>
             <div style={{ fontSize: 13, color: "#999", marginTop: 4, fontStyle: "italic" }}>
               From the wound that costs $2B to the platform that closes it
             </div>
+          </div>
           </div>
           <div className="controls" style={{ display: "flex", gap: 8, alignItems: "center" }}>
             <button onClick={() => setAudioEnabled(!audioEnabled)} style={{
@@ -416,23 +449,6 @@ function BiRAGASPlaybook() {
 
           {/* Main content */}
           <div className="main-pad" style={{ flex: 1, padding: "36px 44px", overflowY: "auto", maxWidth: 900 }}>
-            {/* Mobile section picker */}
-            <select className="mobile-section-pick" value={activeSection} onChange={(e) => setActiveSection(parseInt(e.target.value, 10))} style={{
-              width: "100%",
-              padding: "10px 14px",
-              background: "#1A1A1A",
-              color: "#F5F0E8",
-              border: "1px solid #333",
-              borderRadius: 4,
-              fontSize: 13,
-              fontFamily: "monospace",
-              marginBottom: 24,
-              cursor: "pointer"
-            }}>
-              {sections.map((s, i) => (
-                <option key={s.id} value={i}>{String(i+1).padStart(2,"0")} · {s.label} · {s.subtitle}</option>
-              ))}
-            </select>
             <div style={{
               fontSize: 10,
               letterSpacing: "0.25em",
@@ -589,7 +605,147 @@ function BiRAGASPlaybook() {
         </div>
       )}
 
-      <div style={{
+      {drawerOpen && (
+        <React.Fragment>
+          <div
+            className="drawer-backdrop"
+            onClick={() => setDrawerOpen(false)}
+            style={{
+              position: "fixed",
+              inset: 0,
+              background: "rgba(0,0,0,0.6)",
+              zIndex: 998,
+              animation: "fadeIn 0.18s ease-out"
+            }}
+          />
+          <div
+            className="drawer"
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              bottom: 0,
+              width: "82%",
+              maxWidth: 320,
+              background: "#0F0F0F",
+              borderRight: "1px solid #222",
+              zIndex: 999,
+              flexDirection: "column",
+              animation: "drawerIn 0.22s ease-out"
+            }}
+          >
+            <div style={{
+              padding: "18px 22px",
+              borderBottom: "1px solid #222",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center"
+            }}>
+              <div style={{ fontSize: 11, letterSpacing: "0.2em", color: "#888", fontFamily: "monospace" }}>
+                SECTIONS
+              </div>
+              <button
+                onClick={() => setDrawerOpen(false)}
+                aria-label="Close menu"
+                style={{
+                  background: "transparent",
+                  border: "1px solid #333",
+                  color: "#C8C4BC",
+                  width: 32,
+                  height: 32,
+                  borderRadius: 4,
+                  cursor: "pointer",
+                  fontSize: 14,
+                  lineHeight: 1
+                }}
+              >
+                ×
+              </button>
+            </div>
+            <div style={{ overflowY: "auto", flex: 1, padding: "10px 0" }}>
+              {sections.map((s, i) => (
+                <button
+                  key={s.id}
+                  onClick={() => { setActiveSection(i); setTab("narrative"); setDrawerOpen(false); }}
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    textAlign: "left",
+                    background: activeSection === i && tab === "narrative" ? "#1A1A1A" : "transparent",
+                    border: "none",
+                    borderLeft: `3px solid ${activeSection === i && tab === "narrative" ? s.color : "transparent"}`,
+                    padding: "14px 22px",
+                    cursor: "pointer"
+                  }}
+                >
+                  <div style={{
+                    fontSize: 10,
+                    letterSpacing: "0.2em",
+                    color: activeSection === i && tab === "narrative" ? s.color : "#555",
+                    textTransform: "uppercase",
+                    fontFamily: "monospace",
+                    marginBottom: 3
+                  }}>
+                    {String(i + 1).padStart(2, "0")} / {String(sections.length).padStart(2, "0")}
+                  </div>
+                  <div style={{
+                    fontSize: 14,
+                    color: activeSection === i && tab === "narrative" ? "#F5F0E8" : "#C8C4BC",
+                    fontWeight: activeSection === i && tab === "narrative" ? 600 : 400
+                  }}>
+                    {s.label}
+                  </div>
+                  <div style={{
+                    fontSize: 11,
+                    color: activeSection === i && tab === "narrative" ? "#999" : "#666",
+                    marginTop: 2,
+                    fontStyle: "italic"
+                  }}>
+                    {s.subtitle}
+                  </div>
+                </button>
+              ))}
+              <div style={{ borderTop: "1px solid #222", margin: "12px 22px" }} />
+              <button
+                onClick={() => { setTab("objections"); setDrawerOpen(false); }}
+                style={{
+                  display: "block",
+                  width: "100%",
+                  textAlign: "left",
+                  background: tab === "objections" ? "#1A1A1A" : "transparent",
+                  border: "none",
+                  borderLeft: `3px solid ${tab === "objections" ? "#C8102E" : "transparent"}`,
+                  padding: "14px 22px",
+                  cursor: "pointer"
+                }}
+              >
+                <div style={{
+                  fontSize: 10,
+                  letterSpacing: "0.2em",
+                  color: tab === "objections" ? "#C8102E" : "#555",
+                  textTransform: "uppercase",
+                  fontFamily: "monospace",
+                  marginBottom: 3
+                }}>
+                  Q&A
+                </div>
+                <div style={{
+                  fontSize: 14,
+                  color: tab === "objections" ? "#F5F0E8" : "#C8C4BC",
+                  fontWeight: tab === "objections" ? 600 : 400
+                }}>
+                  Objections
+                </div>
+                <div style={{ fontSize: 11, color: "#666", marginTop: 2, fontStyle: "italic" }}>
+                  Every hard question, answered
+                </div>
+              </button>
+            </div>
+          </div>
+        </React.Fragment>
+      )}
+
+      <div className="footer-row" style={{
         borderTop: "1px solid #1A1A1A",
         padding: "12px 40px",
         display: "flex",
