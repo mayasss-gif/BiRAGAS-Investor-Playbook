@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>BiRAGAS Investor Playbook — With Audio Narration</title>
+<meta name="description" content="BiRAGAS Investor Playbook — pitch arc, objection handling, and audio narration. Causal AI drug discovery platform. Ayass Bioscience.">
+<style>
+  html, body, #root { height: 100%; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: #0A0A0A;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  #boot {
+    position: fixed; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    background: #0A0A0A; color: #F5F0E8;
+    z-index: 0;
+  }
+  #boot .logo { font-size: 32px; font-weight: 800; letter-spacing: -1px; color: #F5F0E8; }
+  #boot .tag  { font-size: 11px; color: #888; margin-top: 8px; letter-spacing: 2px; font-family: monospace; }
+  #boot .spinner {
+    margin-top: 24px;
+    width: 22px; height: 22px;
+    border: 2px solid #333;
+    border-top-color: #C8102E;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #0A0A0A; }
+  ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #555; }
+  @media (max-width: 720px) {
+    .sidebar { display: none !important; }
+    .main-pad { padding: 24px 20px !important; }
+    .header-pad { padding: 18px 20px 14px !important; }
+    .header-row { flex-direction: column; align-items: flex-start !important; }
+    .controls { width: 100%; justify-content: flex-start !important; flex-wrap: wrap; }
+    .mobile-nav { display: flex !important; }
+    .mobile-section-pick { display: block !important; }
+  }
+  .mobile-nav { display: none; }
+  .mobile-section-pick { display: none; }
+</style>
+</head>
+<body>
+<div id="boot">
+  <div class="logo">BiRAGAS</div>
+  <div class="tag">INVESTOR PLAYBOOK · LOADING</div>
+  <div class="spinner"></div>
+</div>
+
+<div id="root"></div>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel" data-presets="react,env">
+const { useState, useEffect, useRef } = React;
+
+const sections = [
+  {
+    "id": "hook",
+    "label": "The Hook",
+    "subtitle": "Open with the wound, not the solution",
+    "color": "#C8102E",
+    "content": {
+      "headline": "Nine Out of Ten Drugs Fail.",
+      "body": "Every major drug that washes out in late-stage trials costs the sponsor an average of two billion dollars and a decade of work. The dirty secret of pharmaceutical R&D is that most of those failures aren't random. They are predictable. The wrong biological target was chosen at the very start — based on correlation data dressed up as causation.\n\nThe industry has known this for years. It just hasn't had a tool that fixes it.\n\nDon't lead with the technology. Lead with the pain. Every investor who has touched pharma knows the failure rate is catastrophic — about ninety percent of drugs that enter clinical trials never reach patients. You're not pitching a product. You're pitching the antidote to the most expensive problem in all of science.",
+      "tactics": [
+        "Open cold with the ninety-percent failure statistic.",
+        "Name the root cause out loud — wrong target selection from correlation-only data.",
+        "Let it sit. Don't rush to the solution.",
+        "Only then: 'BiRAGAS was built specifically to fix this.'"
+      ]
+    }
+  },
+  {
+    "id": "problem",
+    "label": "The Problem",
+    "subtitle": "Make the enemy concrete",
+    "color": "#1A1A2E",
+    "content": {
+      "headline": "Correlation Is Not a Business Strategy.",
+      "body": "The entire biomedical research infrastructure — sequencing platforms, expression profiling, genome-wide association studies — generates association data. It tells you that gene A and gene B move together in disease. It cannot tell you which one is the driver and which is the passenger.\n\nThat distinction is worth billions. A drug that targets a passenger gene will never work, no matter how well it's designed. And the FDA is getting stricter — they now require mechanistic, causal evidence to support therapeutic claims, not just correlation tables.\n\nHold three dimensions in front of the investor at once:\n\nScientific — biology is a causal system, but the standard tools study it with correlation lenses.\nFinancial — wrong targets equal failed trials equal destroyed capital.\nRegulatory — the FDA is raising the bar, and most platforms aren't built to clear it.",
+      "tactics": [
+        "Use a concrete analogy: 'Smoke correlates with lung cancer, but treating the smoke doesn't cure the cancer.'",
+        "Cite the FDA's recent shift toward mechanistic evidence — that's a regulatory tailwind investors recognize.",
+        "Quantify everything: two billion dollars per failed program, ten-year timelines, ninety-percent failure rates.",
+        "Frame the incumbent tools as the problem itself, not the solution."
+      ]
+    }
+  },
+  {
+    "id": "wedge",
+    "label": "The Wedge",
+    "subtitle": "Why BiRAGAS is the answer",
+    "color": "#1E40AF",
+    "content": {
+      "headline": "We Identify the Driver. Not the Bystander.",
+      "body": "BiRAGAS reasons about cause and effect, not just statistical association. The platform integrates four convergent biological streams — transcriptomics, GWAS with Mendelian randomization, CRISPR perturbation, and curated knowledge — into one unified causal graph.\n\nEvery output ships with a Causal Confidence Score: Tier 1 Driver, Tier 2 Strong Candidate, Tier 3 Candidate. And every claim is backed by a source-linked, FDA-aligned evidence dossier. The right target stops being an inference and becomes a defensible, auditable result.\n\nThe wedge in the room is short and concrete: we make the causal claim, with evidence, that nobody else can make at scale.",
+      "tactics": [
+        "Frame BiRAGAS as infrastructure, not another AI tool.",
+        "Lead with the Causal Confidence Score — investors love a discrete, scored output.",
+        "Mention 'four convergent streams' as a defensible moat phrase.",
+        "Use 'defensible, auditable' to anchor the FDA conversation."
+      ]
+    }
+  },
+  {
+    "id": "platform",
+    "label": "The Platform",
+    "subtitle": "Four layers, one platform",
+    "color": "#1E40AF",
+    "content": {
+      "headline": "Raw Data In. Causal Map Out.",
+      "body": "BiRAGAS replaces a fragmented pipeline with one integrated platform of four layers:\n\nLayer 1 — Data Acquisition. Cohort retrieval, FastQ processing, and harmonization. Patient data is uploaded or pulled from public repositories and standardised across hospitals, platforms, and timepoints.\n\nLayer 2 — Biological Analysis. Eight modules of standard analysis — differential expression, gene prioritization, pathway analysis, cell-type deconvolution, single-cell, multi-omics, CRISPR, and drug-target — each one publication-grade on its own.\n\nLayer 3 — The Causality Engine. Eight modules that work as one system — Mendelian randomization, temporal analysis, SIGNOR causality, causal DAG construction, centrality, causal calculus, and in-silico perturbation at both population and patient level. This is the heart of the platform.\n\nLayer 4 — Reporting & Output. Automated reports, interactive visualizations, the Causion natural-language co-pilot, and exportable evidence dossiers ready for partners and regulators.\n\nEnd to end: raw sequencing data enters at one side. A validated causal map of the disease — with ranked therapeutic targets and patient-stratified predictions — comes out the other. In hours, not years.",
+      "tactics": [
+        "Visualize the workflow as a horizontal pipeline — left to right — for whiteboard moments.",
+        "Highlight that each layer can stand alone, generating publication-grade output at every stage.",
+        "Emphasize 'hours, not years' — investors respond to operating leverage.",
+        "Name Causion as the natural-language interface — it sells the user experience."
+      ]
+    }
+  },
+  {
+    "id": "engine",
+    "label": "The Engine",
+    "subtitle": "Why we're hard to copy",
+    "color": "#3D0E40",
+    "content": {
+      "headline": "The Causality Engine.",
+      "body": "Layer 3 is what sets BiRAGAS apart. Eight modules designed to work together and answer the question biology has always struggled to answer cleanly: not what is different, but what is causing it.\n\nMendelian Randomization uses inherited genetic variants as a natural experiment — disease cannot rewrite your DNA, so genetic correlation implies causal direction. Temporal Analysis distinguishes initiators from downstream reactions. SIGNOR Causality anchors the analysis in thirty thousand published, curated causal interactions. The Causal DAG builds a wiring diagram of disease. Centrality finds the highest-leverage intervention points. Causal Calculus mathematically validates every relationship. And in-silico perturbation simulates intervention before any wet-lab dollar is spent — at population scale and at the patient level.\n\nEvery output is ranked, scored, simulated, and traceable to evidence.",
+      "tactics": [
+        "Lead with Mendelian Randomization — it's the most defensible single concept in the room.",
+        "Mention Pearl's causal calculus — it is published, established science, not BiRAGAS handwaving.",
+        "Use 'wiring diagram of disease' for the causal DAG — investors picture it immediately.",
+        "Close with 'every output traceable to evidence' — the FDA-readiness anchor."
+      ]
+    }
+  },
+  {
+    "id": "market",
+    "label": "The Market",
+    "subtitle": "Where we land first",
+    "color": "#3D0E40",
+    "content": {
+      "headline": "Three Verticals. Fifty Billion Plus Addressable.",
+      "body": "The platform is general, but the first three landing verticals are concrete and KOL-anchored.\n\nDiabetic Nephropathy — an eighteen billion dollar global market by 2030. BiRAGAS deploys a subscription clinic model plus a companion diagnostic, with in-house cohort data already validated.\n\nAcute Myeloid Leukemia — four-point-two billion dollar market. AML mortality has remained unchanged for fifteen years. BiRAGAS has identified novel FLT3-resistance biomarkers and the WDR4 driver, with peer-reviewed work in publication queue.\n\nThrombosis & Anticoagulation — thirty billion dollar market. The ATLAS consortium of ten KOL physician-scientists is already engaged — both the adult CPC ATLAS and Pedi-ATLAS programs.\n\nEach vertical is a wedge into the broader platform. Pharma partners license modules. Clinicians order biomarker assays. Payers reimburse via established codes.",
+      "tactics": [
+        "Lead with whichever vertical the investor knows — DN for kidney funds, AML for cancer funds, Thrombosis for cardiovascular.",
+        "Use ATLAS as a distribution moat — ten engaged KOLs is real.",
+        "Frame each vertical as 'a wedge into the broader platform' — not a single-shot bet.",
+        "Mention companion diagnostics — they hit reimbursement codes and accelerate revenue."
+      ]
+    }
+  },
+  {
+    "id": "moat",
+    "label": "The Moat",
+    "subtitle": "Why competitors can't catch up",
+    "color": "#0E7C7B",
+    "content": {
+      "headline": "They Bet on Correlation. We Bet on Causation.",
+      "body": "The AI-drug-discovery market is crowded — Recursion, Insitro, Owkin, Schrödinger, BenevolentAI. But every major incumbent is correlational at architecture level. They optimize molecules after a target is chosen. They identify associations between genes and phenotypes. None of them ships a unified causal DAG with Mendelian randomization, CRISPR perturbation, SIGNOR pathway evidence, and causal calculus all converging on one platform.\n\nThat gap is not a feature gap. It is a foundation gap. To match BiRAGAS, a competitor would have to rebuild from the substrate up — and replicate four years of architectural decisions that the team has already made.\n\nAdd the regulatory tailwind: FDA guidance now explicitly favors mechanistic causal evidence. The platforms architected for correlation are exposed. BiRAGAS was architected for what the FDA is moving toward.",
+      "tactics": [
+        "Name specific competitors out loud — investors test whether you know the landscape.",
+        "Use 'foundation gap, not feature gap' to make the moat sound structural.",
+        "Tie the moat to the regulatory tailwind — it's a free force multiplier.",
+        "Mention publications by name: Mendelian randomization in The Lancet; Pearl's causal calculus in Causal Inference in Statistics."
+      ]
+    }
+  },
+  {
+    "id": "model",
+    "label": "The Model",
+    "subtitle": "How we make money",
+    "color": "#D4A017",
+    "content": {
+      "headline": "Modular Licensing. CLIA. Companion Diagnostics.",
+      "body": "Three revenue motions, in declining order of contract size and increasing order of velocity.\n\nModular Licensing — enterprise license of BiRAGAS modules to pharma sponsors and CROs. Once a module is integrated into a sponsor's regulatory workflow, switching costs are high. Land-and-expand from a single module to the full platform is the playbook. Six- to seven-figure annual contracts.\n\nCLIA-Validated Discovery — BiRAGAS operates an in-house CLIA laboratory for biomarker assays. This converts the platform's outputs into billable clinical tests with established reimbursement codes. Mid-five to mid-six figures per assay run.\n\nCompanion Diagnostics — co-developed with pharma partners on a per-program basis, with milestone payments and royalties. Long-cycle but high-upside.\n\nPlus a fourth track — Aptamer platform commercialization — different buyers, shorter sales cycles, established peer-reviewed publications.",
+      "tactics": [
+        "Frame licensing as 'land and expand' — investors know the SaaS playbook.",
+        "Emphasize high switching costs once the platform enters a regulatory workflow.",
+        "Mention CLIA explicitly — it signals real reimbursement, not promised reimbursement.",
+        "Use 'aptamer platform' as a second commercial track to hedge concentration risk."
+      ]
+    }
+  },
+  {
+    "id": "ask",
+    "label": "The Ask",
+    "subtitle": "Round mechanics",
+    "color": "#C8102E",
+    "content": {
+      "headline": "SAFE · 20% Discount · $40M Cap · Refund Right.",
+      "body": "A standard Y Combinator post-money SAFE — discount, no valuation cap — with one critical modification: a milestone-gated twelve-month Refund Right rider.\n\nIf BiRAGAS misses defined operating milestones in twelve months, the investor elects a refund of the purchase amount. If we hit them, the SAFE converts at the Series A at a twenty percent discount. Either way, the asymmetry runs in the investor's favor.\n\nThe mechanics:\n\nMinimum check two hundred fifty thousand dollars, waivable. Rolling close through Q3 2027. First close Q3 2026. Most-Favored-Nation and pro-rata rights both included via the Anchor Investor Side Letter.\n\nMilestones — three tiers. Tier 1 corporate hygiene, all three required. Tier 2 commercial pipeline, at least one of four. Tier 3 product/IP/validation, at least one of three. If the threshold isn't met and no Material Adverse Event has occurred, the investor receives a refund within 90 days, subordinated to a 12-month operating reserve.\n\nThis is the only AI-biotech SAFE on the market that pairs Series A discount with built-in capital protection.",
+      "tactics": [
+        "Lead with the Refund Right — it is the differentiator and the first thing investors care about.",
+        "Use the phrase 'downside protection on an upside bet.'",
+        "Walk through one Tier per breath, then pause.",
+        "Mention MFN explicitly — sophisticated investors test for it."
+      ]
+    }
+  },
+  {
+    "id": "bet",
+    "label": "The Bet",
+    "subtitle": "Why now, why us",
+    "color": "#C8102E",
+    "content": {
+      "headline": "The Bet.",
+      "body": "The thesis runs on three converging shifts that did not exist five years ago.\n\nOne. The compute and algorithmic substrate for causal inference at biological scale finally exists. Pearl's causal calculus has matured from a 1990s theoretical framework into a practical engine that runs on commodity GPU.\n\nTwo. The data substrate exists. Large-scale GWAS, DepMap, CRISPR perturbation screens, and SIGNOR-style curated causal databases are now publicly accessible. The same architecture would have been impossible a decade ago because the data didn't exist.\n\nThree. The regulatory substrate is shifting. The FDA is explicitly asking for mechanistic, causal evidence. Platforms architected for correlation are now structurally exposed.\n\nThe execution side is concrete. Twenty-three of twenty-eight modules are already in production-test. The ATLAS consortium of ten KOL physician-scientists is engaged. Patents are in filing. The team — MD-PhD CEO, deep advisory bench across causal AI, regulatory, and IP — has been building this for four years.\n\nThe bet is on this team executing three concrete milestone-driven tiers in twelve months. That is what the twenty percent discount compensates for.\n\nWe are not building another AI that finds associations. We are building the infrastructure that finally tells biology's actual story.",
+      "tactics": [
+        "Use the 'three converging shifts' frame — investors love thesis structure.",
+        "Pivot from why-now into team — the bet on this team executing.",
+        "End on the closing line — 'the infrastructure that finally tells biology's actual story.'",
+        "Leave silence after the closing line. Don't qualify it."
+      ]
+    }
+  }
+];
+const objections = [
+  {
+    "q": "How is this different from Recursion, Insitro, or Owkin?",
+    "a": "Those platforms operate downstream — molecular optimization, generative chemistry, federated prediction. They all assume a target has already been chosen. BiRAGAS operates upstream: it finds and validates the target itself, using causal inference. It is the layer those platforms need but don't have. And critically, none of them ships a unified causal DAG with Mendelian randomization, CRISPR perturbation, SIGNOR pathway evidence, and causal calculus all converging on one graph. That gap is architectural, not a feature gap."
+  },
+  {
+    "q": "The AI-drug-discovery market is crowded. Why will this win?",
+    "a": "The market is crowded in molecular optimization. The causal-target-identification space is structurally underbuilt. And the FDA is now explicitly requiring mechanistic, causal evidence — a regulatory shift that favors BiRAGAS architecturally and leaves most competitors exposed. We are not entering a crowded race. We are running ahead of a regulatory tailwind."
+  },
+  {
+    "q": "Is the underlying science proven?",
+    "a": "Every component is established peer-reviewed science. Mendelian randomization is published across The Lancet, Nature Genetics, and JAMA. Pearl's causal calculus is a forty-year-old mathematical framework cited tens of thousands of times. SIGNOR is a curated database of more than thirty thousand peer-reviewed causal interactions. CRISPR perturbation is a Nobel-winning experimental technique. What BiRAGAS does is unite all of them in a novel integrated architecture. The methodology is established. The integration is the moat."
+  },
+  {
+    "q": "What's the path to revenue?",
+    "a": "Three motions. Modular licensing to pharma and biotech — land-and-expand model with six- to seven-figure annual contracts and high switching costs. CLIA-validated biomarker assays — established reimbursement codes, mid-five to mid-six figures per run. Companion diagnostics co-developed with pharma partners — milestone payments and royalties. Plus the aptamer platform as a second commercial track. The first revenue ships from CLIA assays — that is the fastest path."
+  },
+  {
+    "q": "Why now? Why hasn't this been done before?",
+    "a": "Three converging shifts. Compute and algorithms — Pearl's causal calculus has matured from theoretical framework into practical engine that runs on commodity GPU. Data — large public causal datasets like GWAS, DepMap, and CRISPR perturbation screens did not exist a decade ago. Regulatory — FDA guidance now explicitly favors mechanistic causal evidence. The scientific concepts aren't new. The conditions to operationalize them at scale are."
+  },
+  {
+    "q": "What about regulatory risk?",
+    "a": "The platform is architected for regulatory readiness. Every causal claim ships with a source-linked, FDA-aligned evidence dossier. We are already engaged with FDA on a Pre-Submission package for the diabetic nephropathy companion diagnostic. The Tier 2 commercial milestone in the Refund Right rider explicitly includes 'FDA Pre-Sub acknowledged' — we are tying compensation to regulatory progress, not just hoping for it."
+  },
+  {
+    "q": "Why is this team the right team?",
+    "a": "Dr. Mohamad Ammar Ayass is a practicing MD with a computational pathology background — clinician and causal-AI architect in one. Supporting him is the ATLAS consortium of ten KOL physician-scientists across the CPC ATLAS and Pedi-ATLAS programs, plus a technical and advisory bench across causal AI, transcriptomics, regulatory, and IP. This is not a first-time team. They have been building this platform for four years and shipped 23 of 28 modules to production-test status before raising capital."
+  },
+  {
+    "q": "What exactly is the Refund Right?",
+    "a": "A milestone-gated twelve-month put option, executed via a side letter to a standard YC post-money SAFE. If BiRAGAS does not satisfy a defined threshold across three tiers of milestones within twelve months of the investor's SAFE Effective Date, the investor has a thirty-day window to elect a refund. The Company pays out of available cash, subordinated to debt and a twelve-month operating reserve. It is the only AI-biotech SAFE on the market that pairs Series A discount with built-in capital protection. It is unusual in SAFE structure — and intentional."
+  }
+];
+
+function BiRAGASPlaybook() {
+  const [activeSection, setActiveSection] = useState(0);
+  const [activeObj, setActiveObj] = useState(null);
+  const [tab, setTab] = useState("narrative");
+  const [audioEnabled, setAudioEnabled] = useState(false);
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    const a = audioRef.current;
+    if (!a) return;
+    if (!audioEnabled) { a.pause(); return; }
+    let src = null;
+    if (tab === "narrative") {
+      src = `audio/${sections[activeSection].id}.mp3`;
+    } else if (tab === "objections" && activeObj !== null) {
+      src = `audio/obj_${activeObj}.mp3`;
+    }
+    if (src) {
+      a.src = src;
+      a.play().catch(() => {});
+    } else {
+      a.pause();
+    }
+  }, [activeSection, activeObj, audioEnabled, tab]);
+
+  const section = sections[activeSection];
+
+  return (
+    <div style={{
+      fontFamily: "'Georgia', 'Times New Roman', serif",
+      background: "#0A0A0A",
+      minHeight: "100vh",
+      color: "#E8E4DC",
+      display: "flex",
+      flexDirection: "column"
+    }}>
+      {/* Header */}
+      <div className="header-pad" style={{
+        background: "linear-gradient(135deg, #0A0A0A 0%, #1A0A00 100%)",
+        borderBottom: "1px solid #333",
+        padding: "28px 40px 20px",
+      }}>
+        <div className="header-row" style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
+          <div>
+            <div style={{ fontSize: 11, letterSpacing: "0.25em", color: "#888", textTransform: "uppercase", marginBottom: 6, fontFamily: "monospace" }}>
+              AYASS BIOSCIENCE · BIRAGAS PLATFORM
+            </div>
+            <h1 style={{ margin: 0, fontSize: 28, fontWeight: 700, color: "#F5F0E8", letterSpacing: "-0.5px" }}>
+              Investor Playbook
+            </h1>
+            <div style={{ fontSize: 13, color: "#999", marginTop: 4, fontStyle: "italic" }}>
+              From the wound that costs $2B to the platform that closes it
+            </div>
+          </div>
+          <div className="controls" style={{ display: "flex", gap: 8, alignItems: "center" }}>
+            <button onClick={() => setAudioEnabled(!audioEnabled)} style={{
+              background: audioEnabled ? "#C8102E" : "transparent",
+              color: audioEnabled ? "#fff" : "#888",
+              border: `1px solid ${audioEnabled ? "#C8102E" : "#444"}`,
+              padding: "7px 14px",
+              borderRadius: 4,
+              cursor: "pointer",
+              fontSize: 12,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              fontFamily: "monospace",
+              display: "flex",
+              alignItems: "center",
+              gap: 6,
+              transition: "all 0.2s"
+            }}>
+              <span style={{ fontSize: 14 }}>{audioEnabled ? "🔊" : "🔇"}</span>
+              <span>{audioEnabled ? "ON" : "OFF"}</span>
+            </button>
+            <audio ref={audioRef} preload="auto" />
+            {["narrative", "objections"].map(t => (
+              <button key={t} onClick={() => setTab(t)} style={{
+                background: tab === t ? "#C8102E" : "transparent",
+                color: tab === t ? "#fff" : "#888",
+                border: `1px solid ${tab === t ? "#C8102E" : "#444"}`,
+                padding: "7px 18px",
+                borderRadius: 4,
+                cursor: "pointer",
+                fontSize: 12,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                fontFamily: "monospace",
+                transition: "all 0.2s"
+              }}>
+                {t === "narrative" ? "Pitch Arc" : "Objections"}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {tab === "narrative" ? (
+        <div style={{ display: "flex", flex: 1, minHeight: 0 }}>
+          {/* Sidebar */}
+          <div className="sidebar" style={{
+            width: 240,
+            background: "#111",
+            borderRight: "1px solid #222",
+            padding: "20px 0",
+            flexShrink: 0,
+            overflowY: "auto"
+          }}>
+            {sections.map((s, i) => (
+              <button key={s.id} onClick={() => setActiveSection(i)} style={{
+                display: "block",
+                width: "100%",
+                textAlign: "left",
+                background: activeSection === i ? "#1A1A1A" : "transparent",
+                border: "none",
+                borderLeft: `3px solid ${activeSection === i ? s.color : "transparent"}`,
+                padding: "14px 22px",
+                cursor: "pointer",
+                transition: "all 0.15s"
+              }}>
+                <div style={{
+                  fontSize: 10,
+                  letterSpacing: "0.2em",
+                  color: activeSection === i ? s.color : "#555",
+                  textTransform: "uppercase",
+                  fontFamily: "monospace",
+                  marginBottom: 3
+                }}>
+                  {String(i + 1).padStart(2, "0")} / {String(sections.length).padStart(2, "0")}
+                </div>
+                <div style={{
+                  fontSize: 13,
+                  color: activeSection === i ? "#F5F0E8" : "#888",
+                  fontWeight: activeSection === i ? 600 : 400,
+                  letterSpacing: "0.01em"
+                }}>
+                  {s.label}
+                </div>
+                <div style={{
+                  fontSize: 11,
+                  color: activeSection === i ? "#999" : "#555",
+                  marginTop: 2,
+                  fontStyle: "italic"
+                }}>
+                  {s.subtitle}
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* Main content */}
+          <div className="main-pad" style={{ flex: 1, padding: "36px 44px", overflowY: "auto", maxWidth: 900 }}>
+            {/* Mobile section picker */}
+            <select className="mobile-section-pick" value={activeSection} onChange={(e) => setActiveSection(parseInt(e.target.value, 10))} style={{
+              width: "100%",
+              padding: "10px 14px",
+              background: "#1A1A1A",
+              color: "#F5F0E8",
+              border: "1px solid #333",
+              borderRadius: 4,
+              fontSize: 13,
+              fontFamily: "monospace",
+              marginBottom: 24,
+              cursor: "pointer"
+            }}>
+              {sections.map((s, i) => (
+                <option key={s.id} value={i}>{String(i+1).padStart(2,"0")} · {s.label} · {s.subtitle}</option>
+              ))}
+            </select>
+            <div style={{
+              fontSize: 10,
+              letterSpacing: "0.25em",
+              color: section.color,
+              textTransform: "uppercase",
+              fontFamily: "monospace",
+              marginBottom: 6
+            }}>
+              {section.label} · {section.subtitle}
+            </div>
+            <h2 style={{
+              fontSize: 30,
+              fontWeight: 700,
+              color: "#F5F0E8",
+              margin: "0 0 22px",
+              letterSpacing: "-0.4px",
+              lineHeight: 1.2
+            }}>
+              {section.content.headline}
+            </h2>
+
+            <div style={{
+              fontSize: 15,
+              lineHeight: 1.8,
+              color: "#C8C4BC",
+              marginBottom: 32,
+              whiteSpace: "pre-line"
+            }}>
+              {section.content.body}
+            </div>
+
+            {section.content.tactics && section.content.tactics.length > 0 && (
+              <div style={{
+                background: "#0F0F0F",
+                border: "1px solid #222",
+                borderLeft: `3px solid ${section.color}`,
+                borderRadius: 4,
+                padding: "20px 24px",
+                marginBottom: 24
+              }}>
+                <div style={{
+                  fontSize: 10,
+                  letterSpacing: "0.25em",
+                  color: section.color,
+                  textTransform: "uppercase",
+                  fontFamily: "monospace",
+                  marginBottom: 12
+                }}>
+                  Pitch Tactics
+                </div>
+                <ul style={{ margin: 0, paddingLeft: 18, color: "#C8C4BC", fontSize: 14, lineHeight: 1.7 }}>
+                  {section.content.tactics.map((t, i) => <li key={i} style={{ marginBottom: 6 }}>{t}</li>)}
+                </ul>
+              </div>
+            )}
+
+            {/* Navigation */}
+            <div style={{ display: "flex", justifyContent: "space-between", marginTop: 32, paddingTop: 22, borderTop: "1px solid #222" }}>
+              <button
+                onClick={() => setActiveSection(Math.max(0, activeSection - 1))}
+                disabled={activeSection === 0}
+                style={{
+                  background: "transparent",
+                  border: "1px solid #333",
+                  color: activeSection === 0 ? "#444" : "#888",
+                  padding: "9px 20px",
+                  borderRadius: 4,
+                  cursor: activeSection === 0 ? "default" : "pointer",
+                  fontSize: 12,
+                  fontFamily: "monospace",
+                  letterSpacing: "0.1em"
+                }}
+              >
+                ← Previous
+              </button>
+              <button
+                onClick={() => setActiveSection(Math.min(sections.length - 1, activeSection + 1))}
+                disabled={activeSection === sections.length - 1}
+                style={{
+                  background: activeSection === sections.length - 1 ? "transparent" : section.color,
+                  border: `1px solid ${activeSection === sections.length - 1 ? "#333" : section.color}`,
+                  color: activeSection === sections.length - 1 ? "#444" : "#fff",
+                  padding: "9px 20px",
+                  borderRadius: 4,
+                  cursor: activeSection === sections.length - 1 ? "default" : "pointer",
+                  fontSize: 12,
+                  fontFamily: "monospace",
+                  letterSpacing: "0.1em"
+                }}
+              >
+                Next →
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="main-pad" style={{ flex: 1, padding: "36px 44px", maxWidth: 900, overflowY: "auto" }}>
+          <div style={{ fontSize: 10, letterSpacing: "0.25em", color: "#C8102E", textTransform: "uppercase", fontFamily: "monospace", marginBottom: 8 }}>
+            Handling Objections
+          </div>
+          <h2 style={{ fontSize: 28, fontWeight: 700, color: "#F5F0E8", margin: "0 0 28px", letterSpacing: "-0.3px" }}>
+            Every Hard Question. Answered.
+          </h2>
+          {objections.map((o, i) => (
+            <div key={i} style={{
+              background: activeObj === i ? "#141414" : "#0F0F0F",
+              border: `1px solid ${activeObj === i ? "#C8102E" : "#222"}`,
+              borderRadius: 6,
+              marginBottom: 12,
+              overflow: "hidden",
+              transition: "all 0.2s"
+            }}>
+              <button
+                onClick={() => setActiveObj(activeObj === i ? null : i)}
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  width: "100%",
+                  background: "transparent",
+                  border: "none",
+                  padding: "18px 24px",
+                  cursor: "pointer",
+                  textAlign: "left",
+                  gap: 16
+                }}
+              >
+                <div style={{ fontSize: 14, color: activeObj === i ? "#F5F0E8" : "#C8C4BC", fontWeight: 500, lineHeight: 1.4 }}>
+                  "{o.q}"
+                </div>
+                <div style={{
+                  color: "#C8102E",
+                  fontSize: 18,
+                  flexShrink: 0,
+                  transform: activeObj === i ? "rotate(45deg)" : "none",
+                  transition: "transform 0.2s"
+                }}>
+                  +
+                </div>
+              </button>
+              {activeObj === i && (
+                <div style={{
+                  padding: "0 24px 20px",
+                  fontSize: 14,
+                  color: "#B0A898",
+                  lineHeight: 1.75,
+                  borderTop: "1px solid #222"
+                }}>
+                  <div style={{ paddingTop: 16 }}>{o.a}</div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+
+      <div style={{
+        borderTop: "1px solid #1A1A1A",
+        padding: "12px 40px",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        flexWrap: "wrap",
+        gap: 8
+      }}>
+        <div style={{ fontSize: 11, color: "#444", fontFamily: "monospace" }}>
+          BIRAGAS · AYASS BIOSCIENCE, LLC · TEXAS · MMXXVI
+        </div>
+        <div style={{ fontSize: 11, color: "#444", fontFamily: "monospace" }}>
+          FOR DISCUSSION PURPOSES ONLY
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const _root = ReactDOM.createRoot(document.getElementById('root'));
+_root.render(React.createElement(BiRAGASPlaybook));
+
+const boot = document.getElementById('boot');
+if (boot) boot.remove();
+</script>
+</body>
+</html>
